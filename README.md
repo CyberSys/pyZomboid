@@ -15,7 +15,8 @@ what was required to load all files without issue, and trigger the initial event
 OnLoadSoundBanks up to OnPostDistributionMerge *(as well as load ORGM)*
 
 Be aware this is a total hackjob, incomplete, undocumented, and used in the creation of
-the ORGM discord bot.
+the ORGM discord bot. Don't expect it to give you anything but headaches in its current
+state unless you hit it with a very large hammer.
 
 If you encounter this error:
 
