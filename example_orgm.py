@@ -73,4 +73,4 @@ if ORGM:
     print "######################################"
     print "spare 1911 magazines:"
     print [x.modData.currentCapacity for x in player.getInventory().items['M1911Mag'].data]
-    firearmTest(item2, player, 15) # lets pull the trigger 10 times
+    firearmTest(item2, player, 15) # lets pull the trigger 15 times
