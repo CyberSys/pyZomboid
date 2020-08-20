@@ -5,6 +5,7 @@ from zomboid.java import Enum
 from .base import BaseScriptObject
 from .item import Item
 from .recipe import Recipe
+from .uniquerecipe import UniqueRecipe
 from .fixing import Fixing
 from .sound import GameSoundScript
 
@@ -28,9 +29,6 @@ class Type(Enum):
 
 LINESPLIT_DEFAULT = re.compile("[\t ]*=[\t ]*")
 
-
-class UniqueRecipe(BaseScriptObject):
-    pass
 
 class EvolvedRecipe(BaseScriptObject):
     pass
