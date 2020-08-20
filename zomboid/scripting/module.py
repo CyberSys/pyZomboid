@@ -3,7 +3,7 @@ import logging
 from zomboid.java import ArrayList, HashMap
 
 from .parser import ScriptParser
-from .objects import Item, Recipe, Fixing, ModelScript, GameSoundScript, VehicleScript, UniqueRecipe, EvolvedRecipe 
+from .objects import Item, Recipe, Fixing, ModelScript, GameSoundScript, VehicleScript, VehicleTemplate, UniqueRecipe, EvolvedRecipe 
 #from .objects.item import Item
 #from .objects.recipe import Recipe
 import re
@@ -15,27 +15,35 @@ ModuleMap = { }
 class ScriptModule:
     name : str = None
     value : str = None
-    Imports : ArrayList = None
+    Imports : ArrayList = None # not really a arraylist. Stack()
     ItemMap : HashMap = None
-    ModelScriptMap : HashMap = None
     GameSoundMap : HashMap = None
     GameSoundList : ArrayList = None
+    ModelScriptMap : HashMap = None
+    VehicleMap : HashMap = None
+    VehicleTemplateMap : HashMap = None
+
     RecipeMap : ArrayList = None
     RecipesWithDotInName : HashMap = None
-    UniqueRecipeMap : ArrayList = None
     EvolvedRecipe : ArrayList = None
+    UniqueRecipeMap : ArrayList = None
     FixingMap : HashMap = None
     
+    disabled : bool = False
+
     def __init__(self):
         self.Imports = ArrayList()
         self.ItemMap = HashMap()
-        self.ModelScriptMap = HashMap()
         self.GameSoundMap = HashMap()
         self.GameSoundList = ArrayList()
+        self.ModelScriptMap = HashMap()
+        self.VehicleMap = HashMap()
+        self.VehicleTemplateMap = HashMap()
+
         self.RecipeMap = ArrayList()
         self.RecipesWithDotInName = HashMap()
-        self.UniqueRecipeMap = ArrayList()
         self.EvolvedRecipe = ArrayList()
+        self.UniqueRecipeMap = ArrayList()
         self.FixingMap = HashMap()
 
 
@@ -86,7 +94,10 @@ class ScriptModule:
             self.VehicleMap[name] = VehicleScript()
 
         elif key == "template":
-            pass
+            name = name.split()
+            if len(name) == 2 and name[0] == 'vehicle':
+                template = VehicleTemplate(self, name[1], data)
+                self.VehicleTemplateMap[name[1]] = template
 
 
     def CreateFromToken(self, data : str) -> None:
@@ -138,7 +149,7 @@ class ScriptModule:
 
         elif key == "sound":
             this = self.GameSoundMap[name]
-            block_data = data#match.group(3)#
+            block_data = data
 
         elif key == "vehicle":
             this = self.VehicleMap[name]
