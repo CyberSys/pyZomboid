@@ -8,6 +8,8 @@ from .recipe import Recipe
 from .uniquerecipe import UniqueRecipe
 from .fixing import Fixing
 from .sound import GameSoundScript
+from .vehicle import VehicleScript
+from .template import VehicleTemplate
 
 
 class Type(Enum):
@@ -40,9 +42,6 @@ class ModelScript(BaseScriptObject):
     def reset(self):
         pass
 
-
-class VehicleScript(BaseScriptObject):
-    pass
 
 
 
