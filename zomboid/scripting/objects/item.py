@@ -1,9 +1,25 @@
-
 import re
 import logging
-from zomboid.java import ArrayList
+from zomboid.java import ArrayList, Enum
 from .base import BaseScriptObject 
 logger = logging.getLogger(__name__)
+
+class Type(Enum):
+    Normal = 0
+    Weapon = 1
+    Food = 2
+    Literature = 3
+    Drainable = 4
+    Clothing = 5
+    Container = 6
+    WeaponPart = 7
+    Key = 8
+    KeyRing = 9
+    Moveable = 10
+    Radio = 11
+    AlarmClock = 12
+    AlarmClockClothing = 13
+
 
 class Item(BaseScriptObject):
     BodyLocation : str = ""
