@@ -28,8 +28,12 @@ class ArrayList:
 
         self.data = data
 
-    def add(self, value):
-        self.data.append(value)
+    def add(self, *args):
+        if len(args) == 1:
+            self.data.append(args[0])
+        elif len(args) == 2:
+            self.insert(*args)
+
 
     def remove(self, value):
         self.data.remove(value)
