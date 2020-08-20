@@ -21,58 +21,62 @@ class Enum(enum.Enum):
 
 
 class ArrayList:
+    
     def __init__(self, *data):
         if data is None:
             data = []
 
-        self.data = list(data)
+        self._list = list(data)
+
+    def as_list(self):
+        return self._list
 
     def add(self, *args):
         if len(args) == 1:
-            self.data.append(args[0])
+            self._list.append(args[0])
         elif len(args) == 2:
             self.insert(*args)
 
 
     def remove(self, value):
-        self.data.remove(value)
+        self._list.remove(value)
 
     def get(self, index):
-        return self.data[index]
+        return self._list[index]
 
     def size(self):
-        return len(self.data)
+        return len(self._list)
 
     def contains(self, value):
-        return (value in self.data)
+        return (value in self._list)
 
     def isEmpty(self):
-        return len(self.data) > 0
+        return len(self._list) > 0
 
     def clear(self):
-        self.data = []
+        self._list = []
 
     def __add__(self, other):
         if isinstance(other, ArrayList):
-            other = other.data
+            other = other._list
         joined = ArrayList()
-        joined.data = self.data + other
+        joined._list = self._list + other
         return joined
     
     def __len__(self):
         return self.size()
 
     def __getitem__(self, index):
-        return self.data[index]
+        return self._list[index]
 
     def __setitem__(self, index, value):
-        self.data[index] = value
+        self._list[index] = value
 
     def __contains__(self, value):
-        return value in self.data
+        return value in self._list
 
     def __iter__(self):
-        return iter(self.data)
+        return iter(self._list)
 
 class HashMap:
     def __init__(self, data=None):
