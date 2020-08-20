@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """
+Drop in replacement to simulate some java classes for api compatability.
+
 Created on Mon Dec 16 23:04:32 2019
 
 @author: wolf
@@ -34,9 +36,9 @@ class ArrayList:
     def add(self, *args):
         if len(args) == 1:
             self._list.append(args[0])
+
         elif len(args) == 2:
             self.insert(*args)
-
 
     def remove(self, value):
         self._list.remove(value)
@@ -55,6 +57,9 @@ class ArrayList:
 
     def clear(self):
         self._list = []
+
+    def addAll(self, other):
+        self[len(self):] = other
 
     def __add__(self, other):
         if isinstance(other, ArrayList):
@@ -77,6 +82,7 @@ class ArrayList:
 
     def __iter__(self):
         return iter(self._list)
+
 
 class HashMap:
     def __init__(self, data=None):
