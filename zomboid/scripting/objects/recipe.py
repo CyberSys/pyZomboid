@@ -299,7 +299,7 @@ class Recipe(BaseScriptObject):
                 #str2 = (PerkFactory.getPerk(PerkFactory.Perks.FromString(str1))).name + " " + + this.skillRequired.get(str1);
                 skills.append("%s %s" % (sk, self.skillRequired[sk]))
         
-        return ArrayList(skills)
+        return ArrayList(*skills)
 
 
     def findSource(self, item : str) -> Source:

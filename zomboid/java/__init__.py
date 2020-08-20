@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Mon Dec 16 23:04:32 2019
@@ -22,11 +21,11 @@ class Enum(enum.Enum):
 
 
 class ArrayList:
-    def __init__(self, data=None):
+    def __init__(self, *data):
         if data is None:
             data = []
 
-        self.data = data
+        self.data = list(data)
 
     def add(self, *args):
         if len(args) == 1:
@@ -56,8 +55,9 @@ class ArrayList:
     def __add__(self, other):
         if isinstance(other, ArrayList):
             other = other.data
-
-        return ArrayList(self.data + other)
+        joined = ArrayList()
+        joined.data = self.data + other
+        return joined
     
     def __len__(self):
         return self.size()

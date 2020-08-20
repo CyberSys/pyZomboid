@@ -341,7 +341,7 @@ class Item(BaseScriptObject):
             self.BodyLocation = value
 
         elif key == 'palettes':
-            self.Palettes = ArrayList(value.split('/'))
+            self.Palettes = ArrayList(*value.split('/'))
 
         elif key == 'hitsound':
             self.HitSound = value
@@ -512,7 +512,7 @@ class Item(BaseScriptObject):
             self.runSpeedModifier = float(value)
 
         elif key == 'clothingitemextra':
-            self.clothingItemExtra = ArrayList(value.split(';'))
+            self.clothingItemExtra = ArrayList(*value.split(';'))
 
         elif key == 'clothingextrasubmenu':
             self.clothingExtraSubmenu = value
@@ -548,7 +548,7 @@ class Item(BaseScriptObject):
             self.jamGunChance = float(value)
 
         elif key == 'modelweaponpart':
-            self.modelWeaponPart = ArrayList(value.split(' '))
+            self.modelWeaponPart = ArrayList(*value.split(' '))
 
         elif key == 'rackaftershoot':
             self.rackAfterShoot = value.lower() == 'true'
@@ -584,7 +584,7 @@ class Item(BaseScriptObject):
             self.insertAllBulletsReload = value.lower() == 'true'
 
         elif key == 'clothingitemextraoption':
-            self.clothingItemExtraOption = ArrayList(value.split(';'))
+            self.clothingItemExtraOption = ArrayList(*value.split(';'))
 
         elif key == 'conditionlowerchance':
             self.ConditionLowerChanceOneIn = int(value)
@@ -656,7 +656,7 @@ class Item(BaseScriptObject):
             self.SoundRadius = int(value)
 
         elif key == 'categories':
-            self.Categories = ArrayList(value.split(';'))
+            self.Categories = ArrayList(*value.split(';'))
 
         elif key == 'othercharactervolumeboost':
             self.OtherCharacterVolumeBoost = float(value)
@@ -725,13 +725,13 @@ class Item(BaseScriptObject):
             self.RunAnim = value
 
         elif key == 'requireinhandorinventory':
-            self.RequireInHandOrInventory = ArrayList(value.split('/'))
+            self.RequireInHandOrInventory = ArrayList(*value.split('/'))
 
         elif key == 'firemodepossibilities':
-            self.fireModePossibilities = ArrayList(value.split('/'))
+            self.fireModePossibilities = ArrayList(*value.split('/'))
 
         elif key == 'attachmentsprovided':
-            self.attachmentsProvided = ArrayList(value.split(';'))
+            self.attachmentsProvided = ArrayList(*value.split(';'))
 
         elif key == 'attachmentreplacement':
             self.attachmentReplacement = value
@@ -920,7 +920,7 @@ class Item(BaseScriptObject):
             self.RequiresEquippedBothHands = value.lower() == 'true'
 
         elif key == 'replaceoncooked':
-            self.ReplaceOnCooked = ArrayList(value.split(';'))
+            self.ReplaceOnCooked = ArrayList(*value.split(';'))
 
         elif key == 'customcontextmenu':
             self.CustomContextMenu = value
@@ -1184,10 +1184,10 @@ class Item(BaseScriptObject):
             self.fabricType = value
 
         elif key == 'teachedrecipes':
-            self.teachedRecipes = ArrayList(value.split(';'))
+            self.teachedRecipes = ArrayList(*value.split(';'))
 
         elif key == 'mounton':
-            self.mountOn = ArrayList(value.split(';'))
+            self.mountOn = ArrayList(*value.split(';'))
 
         elif key == 'parttype':
             self.partType = value
@@ -1226,10 +1226,10 @@ class Item(BaseScriptObject):
             self.eatType = value
 
         elif key == 'iconsfortexture':
-            self.IconsForTexture = ArrayList(value.split(';'))
+            self.IconsForTexture = ArrayList(*value.split(';'))
 
         elif key == 'bloodlocation':
-            self.bloodClothingType = ArrayList(value.split(';'))
+            self.bloodClothingType = ArrayList(*value.split(';'))
 
         elif key == 'obsolete':
             self.OBSOLETE = value.lower() == 'true'
